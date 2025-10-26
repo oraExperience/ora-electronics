@@ -1,0 +1,130 @@
+
+# Enable Apache mod_rewrite
+RewriteEngine On
+
+# Force HTTPS (if SSL is available)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Remove www from domain (choose one - www or non-www)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# SEO-friendly URL rewrites
+# Product pages: /product/product-name -> /products.html?name=product-name
+RewriteRule ^product/([a-zA-Z0-9-]+)/?$ /products.html?name=$1 [L,QSA]
+
+# Category pages are now handled by SSR controllers
+# No rewrite rules needed - handled directly by Node.js routes
+
+# Price range pages - serve the actual HTML files from seo/pages
+RewriteRule ^mobiles-under-([0-9]+)/?$ /seo/pages/mobiles-under-$1.html [L]
+
+# Brand pages - serve the actual HTML files from seo/pages
+RewriteRule ^samsung-mobiles/?$ /seo/pages/samsung-mobiles.html [L]
+RewriteRule ^apple-mobiles/?$ /seo/pages/apple-mobiles.html [L]
+RewriteRule ^oneplus-mobiles/?$ /seo/pages/oneplus-mobiles.html [L]
+RewriteRule ^xiaomi-mobiles/?$ /seo/pages/xiaomi-mobiles.html [L]
+
+# City-specific pages - serve the actual HTML files from seo/pages
+RewriteRule ^mobiles-delhi/?$ /seo/pages/mobiles-delhi.html [L]
+RewriteRule ^mobiles-mumbai/?$ /seo/pages/mobiles-mumbai.html [L]
+
+# Search page cleanup
+RewriteRule ^search/?$ /search.html [L,QSA]
+
+# Default document
+DirectoryIndex index.html
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Security headers
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+    
+    # Cache control for static assets
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
+        Header set Cache-Control "public, max-age=31536000"
+        Header set Expires "access plus 1 year"
+        Header unset ETag
+        FileETag None
+    </FilesMatch>
+    
+    # Cache control for HTML files
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "public, max-age=3600"
+        Header set Expires "access plus 1 hour"
+    </FilesMatch>
+    
+    # Disable caching for dynamic product pages
+    <Files "products.html">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </Files>
+    
+    # Cache control for API responses
+    <FilesMatch "\.json$">
+        Header set Cache-Control "public, max-age=300"
+        Header set Expires "access plus 5 minutes"
+    </FilesMatch>
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType application/pdf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</FilesMatch>
+
+# Block access to .git directory
+<DirectoryMatch "\.git">
+    Order allow,deny
+    Deny from all
+</DirectoryMatch>
+
+# Custom error pages
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# Trailing slash redirect
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ $1/ [R=301,L]

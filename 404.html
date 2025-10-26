@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="theme-color" content="#ea2832">
+    
+    <title>Page Not Found | ora - Buy Mobiles Online India</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Find the best mobile phone deals from verified stores across India on ora.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Lexend:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900">
+    <link rel="icon" type="image/png" href="/ora-favicon.png" />
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <style>
+      @media (max-width: 640px) {
+        input[type="text"] {
+          font-size: 12px !important;
+        }
+      }
+    </style>
+</head>
+
+<body class="min-h-screen bg-[#fcf8f8]" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+  <div class="mx-auto max-w-[1320px] px-4 sm:px-8 xl:px-16">
+    <!-- Header -->
+    <div class="flex items-center bg-[#fcf8f8] p-4 pb-2 gap-3">
+      <a href="/" class="flex items-center cursor-pointer">
+        <img src="/ora-favicon.png" alt="ora logo" class="h-7 w-auto mr-1" />
+        <span class="text-[#1b0e0e] text-lg font-bold">ora</span>
+      </a>
+      
+      <div class="flex-1 flex items-center">
+        <div class="relative w-full">
+          <input
+            type="text"
+            placeholder="Search for mobiles"
+            class="w-full rounded-lg border border-[#e7d0d1] pl-10 pr-3 py-2 text-sm bg-white focus:outline-none focus:ring-0 focus:border-black text-[#1b0e0e]"
+            onkeydown="if(event.key==='Enter') window.location.href='/search?q=' + encodeURIComponent(this.value)"
+          />
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#994d51]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 404 Content -->
+    <div class="text-center py-16">
+      <div class="mb-8">
+        <h1 class="text-6xl font-bold text-[#ea2832] mb-4">404</h1>
+        <h2 class="text-2xl font-semibold text-[#1b0e0e] mb-4">Page Not Found</h2>
+        <p class="text-gray-600 mb-8 max-w-md mx-auto">
+          The page you're looking for doesn't exist. But don't worry, you can still find the best mobile phone deals from verified stores across India.
+        </p>
+      </div>
+      
+      <!-- Quick Links -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-4xl mx-auto">
+        <a href="/" class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold text-[#1b0e0e] mb-2">Browse All Mobiles</h3>
+          <p class="text-gray-600 text-sm">Explore our complete collection of smartphones</p>
+        </a>
+        
+        <a href="/mobiles-under-50000" class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold text-[#1b0e0e] mb-2">Mobiles Under ₹50,000</h3>
+          <p class="text-gray-600 text-sm">Premium smartphones at affordable prices</p>
+        </a>
+        
+        <a href="/search" class="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+          <h3 class="text-lg font-semibold text-[#1b0e0e] mb-2">Search Mobiles</h3>
+          <p class="text-gray-600 text-sm">Find exactly what you're looking for</p>
+        </a>
+      </div>
+      
+      <!-- Popular Brands -->
+      <div class="mb-8">
+        <h3 class="text-lg font-semibold text-[#1b0e0e] mb-4">Popular Brands</h3>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/samsung-mobiles" class="bg-[#ea2832] text-white px-4 py-2 rounded-lg hover:bg-[#c41e3a] transition">Samsung</a>
+          <a href="/apple-mobiles" class="bg-[#ea2832] text-white px-4 py-2 rounded-lg hover:bg-[#c41e3a] transition">Apple</a>
+          <a href="/oneplus-mobiles" class="bg-[#ea2832] text-white px-4 py-2 rounded-lg hover:bg-[#c41e3a] transition">OnePlus</a>
+          <a href="/xiaomi-mobiles" class="bg-[#ea2832] text-white px-4 py-2 rounded-lg hover:bg-[#c41e3a] transition">Xiaomi</a>
+        </div>
+      </div>
+      
+      <!-- Back to Home -->
+      <a href="/" class="inline-block bg-[#ea2832] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c41e3a] transition">
+        Go Back Home
+      </a>
+    </div>
+  </div>
+  
+  <!-- Track 404 errors -->
+  <script>
+    // Track 404 error in analytics (if Google Analytics is set up)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_title: '404 - Page Not Found',
+        page_location: window.location.href,
+        custom_map: {'custom_parameter_1': '404_error'}
+      });
+    }
+  </script>
+</body>
+</html>

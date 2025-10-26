@@ -1,0 +1,86 @@
+
+{
+  "name": "ora - Electronics Price Comparison",
+  "short_name": "ora",
+  "description": "Compare mobile phone prices from verified stores across India. Find best deals on Samsung, Apple, OnePlus, Xiaomi smartphones.",
+  "lang": "en-IN",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ea2832",
+  "background_color": "#fcf8f8",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "ora-favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "ora-favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["shopping", "business", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Search Mobiles",
+      "short_name": "Search",
+      "description": "Search and compare mobile phone prices",
+      "url": "/search",
+      "icons": [
+        {
+          "src": "ora-favicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Mobiles Under ₹20,000",
+      "short_name": "Under 20K",
+      "description": "Best budget smartphones under ₹20,000",
+      "url": "/mobiles-under-20000",
+      "icons": [
+        {
+          "src": "ora-favicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Samsung Mobiles",
+      "short_name": "Samsung",
+      "description": "Samsung Galaxy smartphone prices",
+      "url": "/samsung-mobiles",
+      "icons": [
+        {
+          "src": "ora-favicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Apple iPhones",
+      "short_name": "iPhone",
+      "description": "Apple iPhone prices in India",
+      "url": "/apple-mobiles",
+      "icons": [
+        {
+          "src": "ora-favicon.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

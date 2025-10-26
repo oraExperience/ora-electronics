@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
+    },
+    {
+      "src": "/product/([^/]+)",
+      "dest": "/products.html?name=$1"
+    },
+    {
+      "src": "/mobiles-under-([0-9]+)",
+      "dest": "/seo/pages/mobiles-under-$1.html"
+    },
+    {
+      "src": "/samsung-mobiles",
+      "dest": "/seo/pages/samsung-mobiles.html"
+    },
+    {
+      "src": "/apple-mobiles",
+      "dest": "/seo/pages/apple-mobiles.html"
+    },
+    {
+      "src": "/oneplus-mobiles",
+      "dest": "/seo/pages/oneplus-mobiles.html"
+    },
+    {
+      "src": "/xiaomi-mobiles",
+      "dest": "/seo/pages/xiaomi-mobiles.html"
+    },
+    {
+      "src": "/mobiles-delhi",
+      "dest": "/seo/pages/mobiles-delhi.html"
+    },
+    {
+      "src": "/mobiles-mumbai",
+      "dest": "/seo/pages/mobiles-mumbai.html"
+    },
+    {
+      "src": "/search",
+      "dest": "/search.html"
+    },
+    {
+      "src": "/(.*\\..+)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
