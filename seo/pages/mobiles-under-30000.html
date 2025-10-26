@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="theme-color" content="#ea2832">
+    
+    <title>Best Mobiles Under ₹30,000 in India 2024 | Mid-Range Smartphones | ora</title>
+    <meta name="description" content="Find the best mobile phones under ₹30,000 in India. Compare prices of mid-range smartphones from Samsung, OnePlus, Xiaomi with premium cameras and fast performance from verified stores.">
+    <meta name="keywords" content="mobiles under 30000, best smartphones under 30000 India, mid range mobile phones, mobile under 30k, premium mobiles India">
+    <link rel="canonical" href="https://electronics-63ec.onrender.com/mobiles-under-30000">
+    
+    <meta property="og:title" content="Best Mid-Range Mobiles Under ₹30,000 in India | ora">
+    <meta property="og:description" content="Discover premium mid-range smartphones under ₹30,000 with flagship features and best deals.">
+    <meta property="og:image" content="https://electronics-63ec.onrender.com/mobiles-under-30k.jpg">
+    <meta property="og:url" content="https://electronics-63ec.onrender.com/mobiles-under-30000">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Best Mobiles Under ₹30,000 in India",
+      "description": "Mid-range smartphones under ₹30,000 with premium cameras, fast charging, and flagship performance.",
+      "url": "https://electronics-63ec.onrender.com/mobiles-under-30000"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Which is the best mobile under 30000 in India?",
+        "acceptedAnswer": {
+          "@type": "Answer", 
+          "text": "Best mobiles under ₹30,000 include OnePlus Nord 3, Samsung Galaxy A54, Xiaomi 13 Lite, Realme GT Neo 5, and POCO F5. These phones offer flagship cameras, fast charging, and premium build quality."
+        }
+      }]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?display=swap&family=Lexend:wght@400;500;700;900">
+    <link rel="icon" href="ora-favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#fcf8f8]" style="font-family:Lexend,sans-serif">
+    <div class="max-w-[1320px] mx-auto px-4">
+        <div class="flex items-center py-4 gap-3 sticky top-0 z-50 bg-[#fcf8f8]">
+            <a href="/search" class="flex items-center">
+                <img src="ora-favicon.png" alt="ora" class="h-7 mr-2">
+                <span class="text-lg font-bold text-[#1b0e0e]">Ora</span>
+            </a>
+            <div class="flex-1 relative">
+                <input type="text" placeholder="Search mobiles under ₹30,000" class="w-full p-2 pl-10 rounded-lg border border-gray-300 text-sm" onkeydown="if(event.key==='Enter')window.location.href='/search?q='+this.value">
+                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"/></svg>
+            </div>
+        </div>
+        
+        <div class="mb-6">
+            <h1 class="text-3xl font-bold text-[#1b0e0e] mb-4">Best Mobile Phones Under ₹30,000 in India (2024)</h1>
+            <p class="text-gray-700">Discover premium mid-range smartphones with flagship cameras, fast charging, AMOLED displays, and powerful processors. Compare prices from verified stores.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-lg p-4 shadow">
+                <h3 class="font-bold text-[#1b0e0e]">OnePlus Nord 3</h3>
+                <p class="text-sm text-gray-600">₹29,999 • MediaTek 9000 • 80W Charging</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow">
+                <h3 class="font-bold text-[#1b0e0e]">Samsung Galaxy A54</h3>
+                <p class="text-sm text-gray-600">₹28,999 • 50MP OIS Camera • AMOLED</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow">
+                <h3 class="font-bold text-[#1b0e0e]">Xiaomi 13 Lite</h3>
+                <p class="text-sm text-gray-600">₹27,999 • 50MP Camera • 67W Charging</p>
+            </div>
+            <div class="bg-white rounded-lg p-4 shadow">
+                <h3 class="font-bold text-[#1b0e0e]">POCO F5</h3>
+                <p class="text-sm text-gray-600">₹29,999 • Snapdragon 7+ Gen 2</p>
+            </div>
+        </div>
+        
+        <div id="mobile-grid" class="grid grid-cols-2 md:grid-cols-5 gap-4"></div>
+    </div>
+    
+    <script>
+    fetch('/api/products/search?q=mobile&minPrice=20001&maxPrice=30000&limit=20').then(r=>r.json()).then(d=>{
+        document.getElementById('mobile-grid').innerHTML=d.map(m=>`<div class="bg-white rounded p-3 shadow cursor-pointer" onclick="location.href='/mobiles/${m.key_name}'"><div class="aspect-square bg-cover rounded mb-2" style="background-image:url('${m.image}')"></div><h3 class="text-sm font-medium mb-1">${m.name}</h3><p class="text-xs text-[#994d51]">₹${m.min_price?Number(m.min_price).toLocaleString('en-IN'):'N/A'}</p></div>`).join('')
+    }).catch(()=>document.getElementById('mobile-grid').innerHTML='<p class="col-span-full text-center">Loading...</p>')
+    </script>
+</body>
+</html>

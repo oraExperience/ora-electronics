@@ -1,0 +1,44 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/product/:name",
+      "destination": "/products.html?name=:name"
+    },
+    {
+      "source": "/mobiles-under-:price",
+      "destination": "/seo/pages/mobiles-under-:price.html"
+    },
+    {
+      "source": "/samsung-mobiles",
+      "destination": "/seo/pages/samsung-mobiles.html"
+    },
+    {
+      "source": "/apple-mobiles",
+      "destination": "/seo/pages/apple-mobiles.html"
+    },
+    {
+      "source": "/oneplus-mobiles",
+      "destination": "/seo/pages/oneplus-mobiles.html"
+    },
+    {
+      "source": "/xiaomi-mobiles",
+      "destination": "/seo/pages/xiaomi-mobiles.html"
+    },
+    {
+      "source": "/mobiles-delhi",
+      "destination": "/seo/pages/mobiles-delhi.html"
+    },
+    {
+      "source": "/mobiles-mumbai",
+      "destination": "/seo/pages/mobiles-mumbai.html"
+    },
+    {
+      "source": "/search",
+      "destination": "/search.html"
+    }
+  ]
+}

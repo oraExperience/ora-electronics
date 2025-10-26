@@ -1,0 +1,56 @@
+
+User-agent: *
+Allow: /
+
+# Allow important pages for crawling
+Allow: /search
+Allow: /product/
+Allow: /mobiles
+Allow: /laptops  
+Allow: /tvs
+Allow: /accessories
+Allow: /seo/pages/
+
+# Block technical files and APIs
+Disallow: /admin/
+Disallow: /api/
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /seo/scripts/
+Disallow: /seo/sw.js
+Disallow: /seo/manifest.json
+
+# Block duplicate content patterns
+Disallow: /search?*page=
+Disallow: /search?*limit=
+Disallow: /product?name=*
+
+# Crawler-specific instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap locations
+Sitemap: https://electronics-63ec.onrender.com/sitemap.xml
