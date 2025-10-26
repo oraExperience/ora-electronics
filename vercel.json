@@ -5,6 +5,26 @@
     {
       "src": "api/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "products.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "search.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "seo/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "src/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -49,7 +69,7 @@
       "dest": "/search.html"
     },
     {
-      "src": "/(.*\\..+)",
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico|json|woff|woff2|ttf|eot))",
       "dest": "/$1"
     },
     {
