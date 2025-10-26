@@ -1,44 +1,60 @@
+
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/index.js"
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
     },
     {
-      "source": "/product/:name",
-      "destination": "/products.html?name=:name"
+      "src": "/product/([^/]+)",
+      "dest": "/products.html?name=$1"
     },
     {
-      "source": "/mobiles-under-:price",
-      "destination": "/seo/pages/mobiles-under-:price.html"
+      "src": "/mobiles-under-([0-9]+)",
+      "dest": "/seo/pages/mobiles-under-$1.html"
     },
     {
-      "source": "/samsung-mobiles",
-      "destination": "/seo/pages/samsung-mobiles.html"
+      "src": "/samsung-mobiles",
+      "dest": "/seo/pages/samsung-mobiles.html"
     },
     {
-      "source": "/apple-mobiles",
-      "destination": "/seo/pages/apple-mobiles.html"
+      "src": "/apple-mobiles",
+      "dest": "/seo/pages/apple-mobiles.html"
     },
     {
-      "source": "/oneplus-mobiles",
-      "destination": "/seo/pages/oneplus-mobiles.html"
+      "src": "/oneplus-mobiles",
+      "dest": "/seo/pages/oneplus-mobiles.html"
     },
     {
-      "source": "/xiaomi-mobiles",
-      "destination": "/seo/pages/xiaomi-mobiles.html"
+      "src": "/xiaomi-mobiles",
+      "dest": "/seo/pages/xiaomi-mobiles.html"
     },
     {
-      "source": "/mobiles-delhi",
-      "destination": "/seo/pages/mobiles-delhi.html"
+      "src": "/mobiles-delhi",
+      "dest": "/seo/pages/mobiles-delhi.html"
     },
     {
-      "source": "/mobiles-mumbai",
-      "destination": "/seo/pages/mobiles-mumbai.html"
+      "src": "/mobiles-mumbai",
+      "dest": "/seo/pages/mobiles-mumbai.html"
     },
     {
-      "source": "/search",
-      "destination": "/search.html"
+      "src": "/search",
+      "dest": "/search.html"
+    },
+    {
+      "src": "/(.*\\..+)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
