@@ -232,7 +232,7 @@ async function searchProducts(query, limit = 5, offset = 0) {
     JOIN vertical v ON p.vertical_id = v.id
     LEFT JOIN store_product_mapping spm ON p.id = spm.product_id
     ${whereClause}
-    GROUP BY p.id, v.name
+    GROUP BY p.id, p.name, p.image, p.key_name, v.name
     ORDER BY p.id DESC
     LIMIT $1 OFFSET $2
   `;
