@@ -188,6 +188,7 @@ async function searchProducts(req, res) {
     } else {
       results = await productModel.searchProducts(q, validLimit, validOffset);
     }
+    console.log('searchProducts results:', results);
     res.json(results);
   } catch (err) {
     console.error('[productController] searchProducts error:', err.message);

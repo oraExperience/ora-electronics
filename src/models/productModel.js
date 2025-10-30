@@ -236,6 +236,8 @@ async function searchProducts(query, limit = 5, offset = 0) {
     ORDER BY p.id DESC
     LIMIT $1 OFFSET $2
   `;
+  console.log('searchQuery:', searchQuery);
+  console.log('params:', params);
   const { rows } = await pool.query(searchQuery, params);
   return rows;
 }
